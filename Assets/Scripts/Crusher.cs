@@ -37,10 +37,10 @@ public class Crusher : MonoBehaviour
                 Cubes.Add(newCube.GetComponent<Rigidbody>());
             }
 
-            //foreach (Rigidbody item in Cubes)
-            //{
-            //    item.AddExplosionForce(_explosionForce, position, scale.x);
-            //}
+            foreach (Rigidbody item in Cubes)
+            {
+                item.AddExplosionForce(_explosionForce, position, scale.x);
+            }
         }
 
         Destroy(gameObject);
