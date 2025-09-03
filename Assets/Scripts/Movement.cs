@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float _speed = 20f;
     [SerializeField] private float _rotationSpeed = 100f;
 
-    void Update()
+    private void Update()
     {
         Vector3 direction = Input.GetAxis(Vertical) * Vector3.forward;
         Vector3 rotation = new Vector3(0f, Input.GetAxis(Horizontal), 0f);

@@ -13,7 +13,7 @@ public class InputHandler : MonoBehaviour
 
     private RaycastHit _hit;
 
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(LeftMouseButtonNumber))
         {

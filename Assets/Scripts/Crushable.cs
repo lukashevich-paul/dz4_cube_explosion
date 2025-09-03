@@ -10,13 +10,19 @@ public class Crushable : MonoBehaviour
 
     [field: SerializeField, Range(RandomMinChanse, RandomMaxChanse)] public float ChanceOfFragmentation { get; private set; }
 
-    void Start()
+    private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
 
         if (_rigidbody == null)
         {
             _rigidbody = gameObject.AddComponent<Rigidbody>();
+        }
+    }
+
+    private void Update() {
+        if (transform.position.y < -500) {
+            Destroy(gameObject);
         }
     }
 
