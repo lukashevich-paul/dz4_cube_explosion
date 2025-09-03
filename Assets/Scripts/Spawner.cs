@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
 
     public List<Rigidbody> GetNewItemsList(Transform targetTransform)
     {
-        List<Rigidbody> list = new List<Rigidbody>();
+        List<Rigidbody> list = new();
         Vector3 scale = targetTransform.localScale / ScaleReducer;
 
         for (int i = 0; i < Random.Range(_minCopyCount, _maxCopyCount); i++)
@@ -25,7 +25,8 @@ public class Spawner : MonoBehaviour
             Transform newItem = Instantiate(targetTransform, subPosition, targetTransform.rotation);
             newItem.transform.localScale = scale;
 
-            list.Add(newItem.GetComponent<Rigidbody>());
+            if (newItem.TryGetComponent(out Rigidbody rb))
+                list.Add(rb);
         }
 
         return list;

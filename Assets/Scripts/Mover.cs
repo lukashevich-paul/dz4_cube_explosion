@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+public class Mover : MonoBehaviour
 {
     private readonly string Horizontal = "Horizontal";
     private readonly string Vertical = "Vertical";
