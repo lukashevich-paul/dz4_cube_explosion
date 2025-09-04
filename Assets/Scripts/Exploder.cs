@@ -35,7 +35,7 @@ public class Exploder : MonoBehaviour
 
         _effect.transform.localScale = Vector3.one * radius;
 
-        GameObject Effect = Instantiate(_effect, position, transform.rotation);
-        Destroy(Effect, _effectLifeTime);
+        GameObject effect = Instantiate(_effect, position, transform.rotation);
+        Destroy(effect, _effectLifeTime);
     }
 }
