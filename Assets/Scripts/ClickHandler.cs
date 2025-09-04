@@ -27,7 +27,7 @@ public class ClickHandler : MonoBehaviour
         }
         else
         {
-            _exploder.Exploide(targetTransform);
+            _exploder.Exploide(crushable.transform);
         }
 
 		_spawner.DestroyOblect(crushable);
