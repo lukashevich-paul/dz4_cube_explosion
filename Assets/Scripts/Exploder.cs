@@ -16,6 +16,7 @@ public class Exploder : MonoBehaviour
                 rigidbody.AddExplosionForce(_explosionForce, position, radius);
         }
     }
+
     public void Exploide(Transform transform)
     {
         Vector3 position = transform.position;
@@ -31,6 +32,8 @@ public class Exploder : MonoBehaviour
             if (item.TryGetComponent(out Rigidbody rigidbody))
                 rigidbody.AddExplosionForce(_explosionForce * IncreasingFactor, position, radius);
         }
+
+        _effect.transform.localScale = Vector3.one * radius;
 
         GameObject Effect = Instantiate(_effect, position, transform.rotation);
         Destroy(Effect, _effectLifeTime);
