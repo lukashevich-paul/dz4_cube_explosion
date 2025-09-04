@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnHandler : MonoBehaviour
+public class ClickHandler : MonoBehaviour
 {
     [SerializeField] private Raycaster _raycaster;
     [SerializeField] private Spawner _spawner;
@@ -23,12 +23,9 @@ public class SpawnHandler : MonoBehaviour
         {
             crushable.ReduceChance();
 
-            Transform targetTransform = crushable.transform;
-            List<Rigidbody> Parts = _spawner.GetNewItemsList(targetTransform);
+            List<Rigidbody> parts = _spawner.GetNewItemsList(crushable);
 
-            _exploder.UseForceForParts(Parts, targetTransform.position, targetTransform.localScale.x / 2);
+            _exploder.UseForceForParts(parts, crushable.transform.position, crushable.transform.localScale.x);
         }
-
-        Destroy(crushable.gameObject);
     }
 }

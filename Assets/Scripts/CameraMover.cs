@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Mover : MonoBehaviour
+public class CameraMover : MonoBehaviour
 {
     private readonly string Horizontal = "Horizontal";
     private readonly string Vertical = "Vertical";

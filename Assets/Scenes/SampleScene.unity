@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _checkDistance: 50
-  _inputHandler: {fileID: 1238730886}
+  _inputReader: {fileID: 1238730886}
 --- !u!4 &46451385
 Transform:
   m_ObjectHideFlags: 0
@@ -1316,9 +1316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ef0d44aa03ed54999c40b2787dee75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionForce: 1000
-  _inputHandler: {fileID: 1238730886}
-  _spawner: {fileID: 0}
+  _explosionForce: 20
 --- !u!4 &1390246792
 Transform:
   m_ObjectHideFlags: 0
@@ -1505,7 +1503,7 @@ GameObject:
   - component: {fileID: 1592334474}
   - component: {fileID: 1592334473}
   m_Layer: 0
-  m_Name: SpawnHandler
+  m_Name: ClickHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1572,6 +1570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minCopyCount: 2
   _maxCopyCount: 7
+  _raycaster: {fileID: 46451384}
 --- !u!4 &1609232022
 Transform:
   m_ObjectHideFlags: 0

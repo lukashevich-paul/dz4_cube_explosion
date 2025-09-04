@@ -6,18 +6,18 @@ public class Raycaster : MonoBehaviour
     private const string Walls = "Walls";
 
     [SerializeField] private float _checkDistance;
-    [SerializeField] private InputHandler _inputHandler;
+    [SerializeField] private InputReader _inputReader;
 
     public event Action<Crushable> OnItemHit;
 
     private void OnEnable()
     {
-        _inputHandler.OnMouseDown += GetObject;
+        _inputReader.OnMouseDown += GetObject;
     }
 
     private void OnDisable()
     {
-        _inputHandler.OnMouseDown -= GetObject;
+        _inputReader.OnMouseDown -= GetObject;
     }
 
     private void GetObject(Vector3 mousePosition)

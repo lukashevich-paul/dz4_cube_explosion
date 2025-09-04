@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Exploder : MonoBehaviour
 {
-    [SerializeField] float _explosionForce = 1000f;
+    [SerializeField] private float _explosionForce = 1000f;
 
     public void UseForceForParts(List<Rigidbody> parts, Vector3 position, float radius)
     {
