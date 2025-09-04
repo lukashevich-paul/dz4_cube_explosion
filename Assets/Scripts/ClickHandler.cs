@@ -21,7 +21,7 @@ public class ClickHandler : MonoBehaviour
     {
         if (crushable.CanFragmentate)
         {
-            List<Rigidbody> parts = _spawner.GetNewItemsList(crushable);
+            List<Crushable> parts = _spawner.GetNewItemsList(crushable);
 
             _exploder.UseForceForParts(parts, crushable.transform.position, crushable.transform.localScale.x);
         }

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -16,9 +15,9 @@ public class Spawner : MonoBehaviour
             _maxCopyCount = _minCopyCount + 1;
     }
 
-    public List<Rigidbody> GetNewItemsList(Crushable crushable)
+    public List<Crushable> GetNewItemsList(Crushable crushable)
     {
-        List<Rigidbody> list = new();
+        List<Crushable> list = new();
         Transform targetTransform = crushable.transform;
         float newChance = crushable.ChanceOfFragmentation / ChanceReducer;
         Vector3 scale = targetTransform.localScale / ScaleReducer;
@@ -29,8 +28,7 @@ public class Spawner : MonoBehaviour
             Crushable newItem = Instantiate(crushable, subPosition, targetTransform.rotation);
             newItem.Init(newChance, scale);
 
-            if (newItem.TryGetComponent(out Rigidbody rigidbody))
-                list.Add(rigidbody);
+            list.Add(newItem);
         }
 
         return list;
