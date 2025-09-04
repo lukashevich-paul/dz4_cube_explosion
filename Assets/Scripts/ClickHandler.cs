@@ -9,23 +9,23 @@ public class ClickHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        _raycaster.OnItemHit += MainProcess;
+        _raycaster.ItemHit += OnItemHit;
     }
 
     private void OnDisable()
     {
-        _raycaster.OnItemHit -= MainProcess;
+        _raycaster.ItemHit -= OnItemHit;
     }
 
-    private void MainProcess(Crushable crushable)
+    private void OnItemHit(Crushable crushable)
     {
-        if (crushable.IsFragmentation())
+        if (crushable.CanFragmentate)
         {
-            crushable.ReduceChance();
-
             List<Rigidbody> parts = _spawner.GetNewItemsList(crushable);
 
             _exploder.UseForceForParts(parts, crushable.transform.position, crushable.transform.localScale.x);
         }
+
+        _spawner.DestroyOblect(crushable);
     }
 }

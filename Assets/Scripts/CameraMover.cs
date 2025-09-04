@@ -2,18 +2,29 @@ using UnityEngine;
 
 public class CameraMover : MonoBehaviour
 {
-    private readonly string Horizontal = "Horizontal";
-    private readonly string Vertical = "Vertical";
-
     [SerializeField] private float _speed = 20f;
     [SerializeField] private float _rotationSpeed = 100f;
+    [SerializeField] private InputReader _inputReader;
 
-    private void Update()
+    private void OnEnable()
     {
-        Vector3 direction = Input.GetAxis(Vertical) * Vector3.forward;
-        Vector3 rotation = new Vector3(0f, Input.GetAxis(Horizontal), 0f);
+        _inputReader.Move += OnMove;
+        _inputReader.Rotate += OnRotate;
+    }
 
-        transform.Translate(_speed * Time.deltaTime * direction);
-        transform.Rotate(_rotationSpeed * Time.deltaTime * rotation);
+    private void OnDisable()
+    {
+        _inputReader.Move -= OnMove;
+        _inputReader.Rotate -= OnRotate;
+    }
+
+    private void OnMove(float distance)
+    {
+        transform.Translate(_speed * Time.deltaTime * distance * Vector3.forward);
+    }
+
+    private void OnRotate(float distance)
+    {
+        transform.Rotate(_rotationSpeed * Time.deltaTime * distance * Vector3.up);
     }
 }

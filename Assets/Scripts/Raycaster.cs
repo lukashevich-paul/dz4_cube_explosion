@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Raycaster : MonoBehaviour
@@ -8,29 +9,28 @@ public class Raycaster : MonoBehaviour
     [SerializeField] private float _checkDistance;
     [SerializeField] private InputReader _inputReader;
 
-    public event Action<Crushable> OnItemHit;
+    public event Action<Crushable> ItemHit;
 
     private void OnEnable()
     {
-        _inputReader.OnMouseDown += GetObject;
+        _inputReader.SendRay += OnSendRay;
     }
 
     private void OnDisable()
     {
-        _inputReader.OnMouseDown -= GetObject;
+        _inputReader.SendRay -= OnSendRay;
     }
 
-    private void GetObject(Vector3 mousePosition)
+    private void OnSendRay(Vector3 mousePosition)
     {
         int layerToIgnore = LayerMask.GetMask(Walls);
         int maskToUse = ~layerToIgnore;
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
 
-        Physics.Raycast(ray, out RaycastHit hit, _checkDistance, maskToUse);
-
-        if (hit.collider == null || hit.collider.TryGetComponent(out Crushable crushable) == false)
-            return;
-
-        OnItemHit?.Invoke(crushable);
+        if (Physics.Raycast(ray, out RaycastHit hit, _checkDistance, maskToUse))
+        {
+            if (hit.collider != null && hit.collider.TryGetComponent(out Crushable crushable) == true)
+                ItemHit?.Invoke(crushable);
+        }
     }
 }

@@ -1,21 +1,24 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Rigidbody))]
 public class Crushable : MonoBehaviour
 {
     public const float RandomMinChanse = 0f;
     public const float RandomMaxChanse = 1f;
-    public const float ChanceReducer = 2f;
 
     [field: SerializeField, Range(RandomMinChanse, RandomMaxChanse)] public float ChanceOfFragmentation { get; private set; }
 
-    public void ReduceChance()
+    public bool CanFragmentate { get; private set; }
+
+    private void Start()
     {
-        ChanceOfFragmentation /= ChanceReducer;
+        CanFragmentate = ChanceOfFragmentation >= Random.Range(RandomMinChanse, RandomMaxChanse);
     }
 
-    public bool IsFragmentation()
+    public void Init(float newChance, Vector3 scale)
     {
-        return ChanceOfFragmentation >= Random.Range(RandomMinChanse, RandomMaxChanse);
+        ChanceOfFragmentation = newChance;
+        transform.localScale = scale;
     }
 }

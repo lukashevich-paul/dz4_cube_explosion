@@ -1103,8 +1103,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1238730884}
-  - component: {fileID: 1238730883}
   - component: {fileID: 1238730886}
+  - component: {fileID: 1238730883}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1126,6 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _rotationSpeed: 100
+  _inputReader: {fileID: 1238730886}
 --- !u!4 &1238730884
 Transform:
   m_ObjectHideFlags: 0
@@ -1570,7 +1571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minCopyCount: 2
   _maxCopyCount: 7
-  _raycaster: {fileID: 46451384}
 --- !u!4 &1609232022
 Transform:
   m_ObjectHideFlags: 0
