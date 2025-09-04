@@ -25,7 +25,11 @@ public class ClickHandler : MonoBehaviour
 
             _exploder.UseForceForParts(parts, crushable.transform.position, crushable.transform.localScale.x);
         }
+        else
+        {
+            _exploder.Exploide(targetTransform);
+        }
 
-        _spawner.DestroyOblect(crushable);
+		_spawner.DestroyOblect(crushable);
     }
 }

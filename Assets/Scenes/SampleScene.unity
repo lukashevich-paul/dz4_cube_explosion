@@ -1136,7 +1136,7 @@ Transform:
   m_GameObject: {fileID: 1238730882}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.822442, z: 0, w: 0.5688491}
-  m_LocalPosition: {x: -2.6, y: 0, z: 1.73}
+  m_LocalPosition: {x: -2.6, y: 0.29, z: 1.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1155,6 +1155,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e40ba331aab06045a057b0d57aebc76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &1238730887
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238730882}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.45519534
+  m_Height: 1.4433199
+  m_Direction: 1
+  m_Center: {x: 0.044804636, y: 0.48459572, z: -9.605207e-10}
+--- !u!54 &1238730888
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238730882}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 10
+  m_AngularDrag: 20
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1 &1319857513
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,6 +1368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _explosionForce: 20
+  _basicExplosionRadius: 1
+  _effect: {fileID: 7016645925116760230, guid: 2b306ceedc9a655418fb019e3d420d0e, type: 3}
+  _effectLifeTime: 0.5
 --- !u!4 &1390246792
 Transform:
   m_ObjectHideFlags: 0
